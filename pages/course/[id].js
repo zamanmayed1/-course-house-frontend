@@ -60,7 +60,7 @@ function SingleCourse() {
         <button
          onClick={() => {
           if (data) {
-            dispatch(addToCart(data))
+            dispatch(()=>addToCart(data))
             notify()
           }
          }}

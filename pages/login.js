@@ -112,9 +112,11 @@ function Login() {
              
                 <p className="text-sm  mt-3">New to Course House. <Link className="text-blue-800 underline" href={'/register'}>Register Now!</Link></p>
               
+              <p>
               {errorMasage && (
-                <p className="text-sm text-red-500 mt-3">{errorMasage}</p>
+                <span className="text-sm text-red-500 mt-3">{errorMasage}</span>
               )}
+              </p>
             </div>
           </div>
         </section>

@@ -1,6 +1,6 @@
 import ComponentHeader from "@/components/Shared/ComponentHeader";
 import { setUser } from "@/src/features/userSlice";
-import {  register } from "@/utils/api";
+import { register } from "@/utils/api";
 import Head from "next/head";
 import Link from "next/link";
 import { useRouter } from "next/router";
@@ -14,7 +14,7 @@ function Register() {
   const [password, setPassword] = useState("");
   const [errorMasage, setErrorMasage] = useState("");
   const router = useRouter();
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
   const notify = () => toast(`User Created Successfuly`);
   const handleFullNameChange = (event) => {
     setFullName(event.target.value);
@@ -34,8 +34,8 @@ function Register() {
     register(data)
       .then((response) => {
         if (response.jwt) {
-         dispatch(setUser(response.user))
-          router.push('/profile');
+          dispatch(setUser(response.user));
+          router.push("/profile");
           notify();
         } else {
           setErrorMasage(response?.error?.message);
@@ -50,7 +50,7 @@ function Register() {
   };
   return (
     <div className="bg-white min-h-screen">
-       <Head>
+      <Head>
         <title>Register your account</title>
       </Head>
       <div className="container mx-auto w-full object-contain overflow-hidden pb-14">
@@ -143,10 +143,17 @@ function Register() {
                   Register
                 </button>
               </form>
-              <p className="text-sm  mt-3">Allready have an account. <Link className="text-blue-800 underline" href={'/login'}>Login Now!</Link></p>
+              <p className="text-sm  mt-3">
+                Allready have an account.{" "}
+                <Link className="text-blue-800 underline" href={"/login"}>
+                  Login Now!
+                </Link>
+              </p>
+              <p>
               {errorMasage && (
                 <p className="text-sm text-red-500 mt-3">{errorMasage}</p>
               )}
+              </p>
             </div>
           </div>
         </section>
