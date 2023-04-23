@@ -64,8 +64,9 @@ function Register() {
           <div className="container px-5 py-24 mx-auto flex flex-wrap items-center">
             <div className="lg:w-3/5 md:w-1/2 md:pr-16 lg:pr-0 pr-0">
               <h1 className="title-font font-medium text-3xl text-gray-900">
-                Join Our Online Courses Today!
+                Course House Register - Access Your Learning Resources
               </h1>
+
               <p className="leading-relaxed mt-4">
                 Are you looking to improve your skills or learn something new?
                 Register now for our online courses and take advantage of the
@@ -150,9 +151,9 @@ function Register() {
                 </Link>
               </p>
               <p>
-              {errorMasage && (
-                <p className="text-sm text-red-500 mt-3">{errorMasage}</p>
-              )}
+                {errorMasage && (
+                  <p className="text-sm text-red-500 mt-3">{errorMasage}</p>
+                )}
               </p>
             </div>
           </div>

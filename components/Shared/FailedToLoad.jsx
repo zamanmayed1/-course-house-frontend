@@ -13,7 +13,7 @@ function FailedToLoad() {
         />
 
         <Image
-          src="https://cdn.iconscout.com/icon/premium/png-256-thumb/sync-error-5779521-4833802.png"
+          src="https://res.cloudinary.com/dpr7otqhn/image/upload/v1682270724/thumbnail_sync_error_5779521_4833802_4f20787475.png"
           alt=""
           width={256}
           height={256}

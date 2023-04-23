@@ -1,6 +1,7 @@
 import ComponentHeader from "@/components/Shared/ComponentHeader";
 import Head from "next/head";
 import Link from "next/link";
+import Image from "next/image";
 
 function AboutUs() {
   return (
@@ -14,10 +15,13 @@ function AboutUs() {
       />
       <div className="grid grid-cols-1 p-2 lg:grid-cols-2 gap-6 justify-center w-full">
         <div>
-          <img
-            className="md:w-[650px] mx-auto border-white border-spacing-3 w-full"
-            src="https://demo.themesberg.com/landwind/images/hero.png"
-          ></img>
+          <Image
+            className="md:w-[500px] mx-auto border-white border-spacing-3 w-full"
+            src="https://res.cloudinary.com/dpr7otqhn/image/upload/v1682270986/thumbnail_hero_1_494f6eb6fa.png"
+            alt="About Us image"
+            width={1000}
+            height={1000}
+          />
         </div>
         <div>
           <h1 className="mb-2 text-xl md:text-2xl text-black mt-5 text-center lg:text-left">

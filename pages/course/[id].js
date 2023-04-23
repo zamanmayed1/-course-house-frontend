@@ -12,12 +12,13 @@ import { useDispatch } from "react-redux";
 import { toast } from "react-toastify";
 import { addToCart } from "@/src/features/cartSlice";
 import Head from "next/head";
+import FailedToLoad from "@/components/Shared/FailedToLoad";
 
 function SingleCourse() {
   const router = useRouter()
   const { id } = router.query
   const { data, error, isLoading } = useSWR(`/api/courses/${id}?populate=*`, fetcher)
-  if (error) return <div>failed to load</div>
+  if (error) return <FailedToLoad/>
   if (isLoading) return <Loader/>
   let { title, shortdescription,longdescription, saleprice, regularprice} = data?.data?.attributes;
   let img = data?.data?.attributes?.courseimage?.data?.attributes?.url
@@ -25,6 +26,13 @@ function SingleCourse() {
   let categoryId = data?.data?.attributes?.category?.data?.id
   const dispatch = useDispatch()
   const notify = () => toast(`${title} Course added on your cart`);
+  const courseData = data?.data;
+  const handleClick = () => {
+    if (courseData) {
+      dispatch(addToCart(courseData))
+      notify()
+    }
+  };
   return (
     <div className='bg-white min-h-screen'>
        <Head>
@@ -57,12 +65,7 @@ function SingleCourse() {
           <span className="line-through ml-1">৳ {regularprice}</span>{" "}
         </h3>         
         <button
-         onClick={() => {
-          if (data) {
-            dispatch(addToCart(data?.data))
-            notify()
-          }
-         }}
+         onClick={handleClick}
           className="custom-btn !bg-green-500 "
         >
          Add To Cart
