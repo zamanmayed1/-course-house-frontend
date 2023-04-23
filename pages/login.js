@@ -39,7 +39,7 @@ function Login() {
       })
       .catch((error) => {
         // Handle error here
-        console.error(error.error.message);
+        console.error(error?.error?.message);
       });
 
     e.preventDefault();

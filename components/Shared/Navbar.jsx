@@ -30,7 +30,7 @@ export default function Nav() {
           className="p-1 font-normal text-white"
           key={i}
         >
-          <Link href={{pathname : val.link}} className="flex items-center text-[#139df8]">
+          <Link href={{pathname : val.link}} className="flex items-center text-black">
             {val.title}
           </Link>
           
@@ -48,7 +48,6 @@ export default function Nav() {
           <div className="flex items-center md:gap-5 gap-3 max-w-max">
             <img className="w-11" src='https://res.cloudinary.com/crunchbase-production/image/upload/c_lpad,h_256,w_256,f_auto,q_auto:eco,dpr_1/hyqdeoruafubnjidim2n' alt="" />
             <Link
-              as="Link"
               href="/"
               className="mr-4 md:text-2xl text-xl  cursor-pointer py-1.5 font-bold text-[#139df8]"
             >

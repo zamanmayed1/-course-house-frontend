@@ -2,10 +2,11 @@ import { fetcher } from '@/utils/api'
 import useSWR from 'swr'
 import Loader from '../Shared/Loader'
 import CourseCard from '../Shared/CourseCard';
+import FailedToLoad from '../Shared/FailedToLoad';
 
 function SimilarCourses({id}) {
     const { data, error, isLoading } = useSWR(`/api/categories/${id}?populate=*`, fetcher)
-    if (error) return <div>failed to load</div>
+    if (error) return <FailedToLoad/>
     if (isLoading) return <Loader/>
     let courses = data?.data?.attributes?.courses?.data
     return (

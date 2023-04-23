@@ -1,9 +1,16 @@
 import ComponentHeader from '@/components/Shared/ComponentHeader'
+import { addToCart } from '@/src/features/cartSlice'
 import Head from 'next/head'
 import Link from 'next/link'
-import React from 'react'
+import React, { useEffect } from 'react'
+import { useDispatch } from 'react-redux'
 
 function Success() {
+    const dispatch = useDispatch()
+  const handleDispatch = () =>{
+    dispatch(addToCart({}))
+  }
+  handleDispatch()
     return (
         <div className='bg-white min-h-screen'>
              <Head>

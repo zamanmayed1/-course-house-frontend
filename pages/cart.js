@@ -7,6 +7,7 @@ import { loadStripe } from "@stripe/stripe-js";
 import { makePaymentRequest } from "@/utils/api";
 import ComponentHeader from "@/components/Shared/ComponentHeader";
 import Head from "next/head";
+import Link from "next/link";
 
 const stripePromise = loadStripe(
   process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY
@@ -21,18 +22,16 @@ function Cart() {
     const cartTotal = cart.reduce((total, val) => total + val?.attributes?.saleprice, 0);
     return Math.max(cartTotal, 50); // ensure subtotal is at least 50
   }, [cart]);
-  
- 
- 
+  const user = useSelector((state)=> state.user)
+  let {email} = user?.user
   const handlePayment = async () => {
     try {
       setLoading(true);
       const stripe = await stripePromise;
       const res = await makePaymentRequest("/api/orders", {
         courses: cart,
-        email: "popcorn@gmail.com"
+        email
       });
-
       await stripe.redirectToCheckout({
         sessionId: res.stripeSession.id,
       });
@@ -55,13 +54,13 @@ function Cart() {
           }}
         />
         {cart.length === 0 ? (
-          <span className="block py-3 px-2 font-bold text-blue-600 bg-green-50">
+          <h2 className="block py-3 px-2 font-bold text-blue-600 bg-green-50">
             Your Cart is Empty!
-          </span>
+          </h2>
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-4 w-full gap-5">
             <div className="md:col-span-3">
-              {cart.map((course, i) => (
+              {cart?.map((course, i) => (
                 <div key={i} className="p-2 shadow-sm flex gap-3 my-2 relative">
                   <img
                     className="w-24 h-16"
@@ -84,7 +83,7 @@ function Cart() {
                 </div>
               ))}
             </div>
-            <div className="md:col-span-1 max-h-[200px] p-2 bg-green-50 rounded-lg">
+            <div className="md:col-span-1 max-h-[250px] min-h-max p-2 bg-green-50 rounded-lg">
               <div className="flex justify-between py-2 mb-3 border-b">
                 <h1 className="font-extrabold">Subtotal</h1>
                 <h1>৳ {subtotal }</h1>
@@ -92,12 +91,23 @@ function Cart() {
               <p className="text-sm md:text-sm">
                 If You want to buy course under 50 Taka it take more 50 Taka extra as a Payment Charge
               </p>
-              <button
-                onClick={handlePayment}
-                className="px-12 mt-4 rounded-full py-3  bg-green-500 hover:bg-blue-900 duration-500 text-white"
-              >
-                 {loading ? "Loading..." : "Pay Now"}
-              </button>
+              
+                {
+                  email ?
+                  <button
+                 onClick={handlePayment}
+                 className="px-12 mt-4 rounded-full py-3  bg-green-500 hover:bg-blue-900 duration-500 text-white"
+               >
+                  {loading ? "Loading..." : "Pay Now"}
+               </button> : 
+                <Link
+                 href={'/login'}
+                 className="px-12 inline-block mt-4  py-3  bg-green-500 hover:bg-blue-900 duration-500 text-white"
+               >
+                 Log In To Pay
+               </Link>
+                }
+              
             </div>
           </div>
         )}

@@ -1,11 +1,11 @@
 import { addToCart } from "@/src/features/cartSlice";
+import Image from "next/image";
 import Link from "next/link";
 import { useDispatch } from "react-redux";
 import {  toast } from "react-toastify";
 
 function MyCourseCard({ data }) {
   let img = data?.courseimage?.data?.attributes?.url
-  console.log(data);
   let {id} = data
   let { title, shortdescription, saleprice, regularprice} = data;
   const dispatch = useDispatch()
@@ -15,9 +15,10 @@ function MyCourseCard({ data }) {
     <div className={`mx-auto ${!img &&" border-t-2 border-green-600"} w-full cursor-pointer hover:-translate-y-2  max-w-md bg-white shadow  duration-700 rounded-md p-2`}>
     
       {
-        img && <img
+        img && <Image
         className="w-full h-[150px] block border-white border-3"
         src={img}
+        alt=""
       />
       }
       <div>

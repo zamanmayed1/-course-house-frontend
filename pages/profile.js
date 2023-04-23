@@ -9,27 +9,26 @@ function Profile() {
   const dispatch = useDispatch();
   const user = useSelector((state) => state.user.user);
   const router = useRouter();
-  let id = user.id
-  useEffect(()=>{
+  let id = user.id;
+  useEffect(() => {
     if (!user.email) {
       router.push("/register");
     }
-  
-  },[user])
- 
+  }, [user]);
+
   return (
-    <main className="profile-page">
-       <Head>
+    <div className="profile-page">
+      <Head>
         <title>{user?.fullname}</title>
       </Head>
       {user.email && (
         <div>
           <section className="relative block h-[300px]">
             <div className="absolute top-0 w-full h-full bg-center bg-[url('https://t4.ftcdn.net/jpg/05/13/43/05/360_F_513430530_ihr1SOz8DzEsDH9IBJtJYQWCXpvXwv2F.jpg')] bg-cover">
-              <span
+              <div
                 id="blackOverlay"
                 className="w-full h-full absolute opacity-50 bg-black"
-              ></span>
+              ></div>
             </div>
             <div className="top-auto bottom-0 left-0 right-0 w-full absolute pointer-events-none overflow-hidden h-[70px]">
               <svg
@@ -74,32 +73,7 @@ function Profile() {
                       </div>
                     </div>
                     <div className="w-full lg:w-4/12 px-4 lg:order-1">
-                      <div className="flex justify-center py-4 lg:pt-4 pt-8">
-                        <div className="mr-4 p-3 text-center">
-                          <span className="text-xl font-bold block uppercase tracking-wide text-blueGray-600">
-                            22
-                          </span>
-                          <span className="text-sm text-blueGray-400">
-                            Friends
-                          </span>
-                        </div>
-                        <div className="mr-4 p-3 text-center">
-                          <span className="text-xl font-bold block uppercase tracking-wide text-blueGray-600">
-                            10
-                          </span>
-                          <span className="text-sm text-blueGray-400">
-                            Photos
-                          </span>
-                        </div>
-                        <div className="lg:mr-4 p-3 text-center">
-                          <span className="text-xl font-bold block uppercase tracking-wide text-blueGray-600">
-                            89
-                          </span>
-                          <span className="text-sm text-blueGray-400">
-                            Comments
-                          </span>
-                        </div>
-                      </div>
+                       
                     </div>
                   </div>
                   <div className="text-center mt-12">
@@ -110,17 +84,9 @@ function Profile() {
                       <i className="fas  mr-2 text-lg text-blueGray-400"></i>
                       {user?.email}
                     </div>
-                    <div className="mb-2 text-blueGray-600 mt-10">
-                      <i className="fas fa-briefcase mr-2 text-lg text-blueGray-400"></i>
-                      Solution Manager - Creative Tim Officer
-                    </div>
-                    <div className="mb-2 text-blueGray-600">
-                      <i className="fas fa-university mr-2 text-lg text-blueGray-400"></i>
-                      University of Computer Science
-                    </div>
                   </div>
                   <div className="mt-10 py-10 border-t border-blueGray-200 text-center">
-                    <MyCourses id={id}/>
+                    <MyCourses id={id} />
                   </div>
                 </div>
               </div>
@@ -133,7 +99,7 @@ function Profile() {
           </section>
         </div>
       )}
-    </main>
+    </div>
   );
 }
 

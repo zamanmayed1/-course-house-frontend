@@ -25,7 +25,6 @@ function SingleCourse() {
   let categoryId = data?.data?.attributes?.category?.data?.id
   const dispatch = useDispatch()
   const notify = () => toast(`${title} Course added on your cart`);
-
   return (
     <div className='bg-white min-h-screen'>
        <Head>
@@ -42,7 +41,7 @@ function SingleCourse() {
       <div className="grid grid-cols-1 p-2 lg:grid-cols-2 gap-6 justify-center w-full">
         <div>
           <img
-            className="md:w-[650px] border-lime-50 border-4 w-full"
+            className="md:w-[650px]  w-full"
             src={img}
           ></img>
         </div>
@@ -60,7 +59,7 @@ function SingleCourse() {
         <button
          onClick={() => {
           if (data) {
-            dispatch(()=>addToCart(data))
+            dispatch(addToCart(data?.data))
             notify()
           }
          }}

@@ -38,7 +38,7 @@ import Head from "next/head";
                     href="#"
                     className="font-medium transition-colors hover:text-blue-500"
                   >
-                    &nbsp;Terms and Conditions
+                    Terms and Conditions
                   </a>
                 </Typography>
               )

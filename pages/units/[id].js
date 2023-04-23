@@ -1,4 +1,5 @@
 import ComponentHeader from "@/components/Shared/ComponentHeader";
+import FailedToLoad from "@/components/Shared/FailedToLoad";
 import Loader from "@/components/Shared/Loader";
 import { fetcher } from "@/utils/api";
 import Head from "next/head";
@@ -10,7 +11,7 @@ function UnitDetails() {
   const router = useRouter();
   const { id } = router.query;
   const { data, error, isLoading } = useSWR(`/api/units/${id}?populate=*`, fetcher);
-  if (error) return <div>failed to load</div>;
+  if (error) return <FailedToLoad/>
   if (isLoading) return <Loader />;
   
 

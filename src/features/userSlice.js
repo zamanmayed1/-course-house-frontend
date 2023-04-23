@@ -1,7 +1,19 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+const getUserFromLocalStorage = () => {
+  try {
+    const serializedUser = localStorage.getItem("user");
+    if (serializedUser === null) {
+      return undefined;
+    }
+    return JSON.parse(serializedUser);
+  } catch (err) {
+    return undefined;
+  }
+};
+
 const initialState = {
-  user: {},
+  user: getUserFromLocalStorage() || {},
 };
 
 export const userSlice = createSlice({
@@ -9,16 +21,17 @@ export const userSlice = createSlice({
   initialState,
   reducers: {
     setUser: (state, actions) => {
-        console.log(actions.payload);
-        state.user= {...actions.payload}
+      state.user = { ...actions.payload };
+      localStorage.setItem("user", JSON.stringify(state.user));
     },
     logoutUser: (state) => {
-        state.user= {}
+      state.user = {};
+      localStorage.removeItem("user");
     },
   },
 });
 
 // Action creators are generated for each case reducer function
-export const { setUser , logoutUser  } = userSlice.actions
+export const { setUser, logoutUser } = userSlice.actions;
 
 export default userSlice.reducer;

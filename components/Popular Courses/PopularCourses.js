@@ -3,10 +3,11 @@ import CourseCard from "../Shared/CourseCard";
 import { fetcher } from "@/utils/api";
 import useSWR from 'swr'
 import Loader from "../Shared/Loader";
+import FailedToLoad from "../Shared/FailedToLoad";
 
 export default function PopularCourses() {
     const { data, error, isLoading } = useSWR('/api/courses?populate=courseimage&pagination[limit]=4', fetcher)
-    if (error) return <div>failed to load</div>
+    if (error) return <FailedToLoad/>
     if (isLoading) return <Loader/>
   return (
     <div className="container mx-auto w-full object-contain overflow-hidden pb-14">

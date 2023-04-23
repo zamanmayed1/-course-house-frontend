@@ -4,6 +4,7 @@ import Loader from "../Shared/Loader";
 import useSWR from "swr";
 import CourseCard from "../Shared/CourseCard";
 import { MdKeyboardArrowRight, MdKeyboardArrowLeft } from "react-icons/md";
+import FailedToLoad from "../Shared/FailedToLoad";
 
 function Courses() {
   const [pageCount, setPageCount] = useState(1);
@@ -12,7 +13,7 @@ function Courses() {
     `/api/courses?populate=*&pagination[page]=${pageCount}&pagination[pageSize]=8`,
     fetcher
   );
-  if (error) return <div>failed to load</div>;
+  if (error) return <FailedToLoad/>;
   if (isLoading) return <Loader />;
   let courses = data?.data;
 

@@ -12,7 +12,7 @@ export default function App({ Component, pageProps }) {
         
       <Provider store={store}>
     <Navbar/>
-    <ToastContainer autoClose={1000} position="bottom-right" draggable theme="dark" />
+    <ToastContainer autoClose={1000} position="bottom-right" draggable  />
      <Component {...pageProps} />
      <Footer/>
      </Provider>
