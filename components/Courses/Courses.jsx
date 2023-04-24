@@ -17,7 +17,7 @@ function Courses() {
   if (isLoading) return <Loader />;
   let courses = data?.data;
 
-  let totalpages = data.meta.pagination.pageCount;
+  let totalpages = data?.meta?.pagination?.pageCount;
 
   if (arr.length === 0) {
     let newArr = [];
