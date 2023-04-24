@@ -2,7 +2,7 @@ import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a lo
 import Image from "next/image";
 function Header() {
   return (
-    <div className="min-h-screen max-h-screen bg-[url('https://res.cloudinary.com/dpr7otqhn/image/upload/v1682311766/thumbnail_bannerbg_28e9e3a49a.png')] bg-cover bg-no-repeat bg-fixed  w-full overflow-hidden">
+    <div className="md:min-h-screen max-h-screen bg-[url('https://res.cloudinary.com/dpr7otqhn/image/upload/v1682311766/thumbnail_bannerbg_28e9e3a49a.png')] bg-cover bg-no-repeat bg-fixed  w-full overflow-hidden">
       <div className="container  mx-auto">
         <div className="p-2 md:flex w-full items-center">
           <div className="md:w-2/4 h-full ">
