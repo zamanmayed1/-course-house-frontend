@@ -13,7 +13,7 @@ function Login() {
   const [password, setPassword] = useState("");
   const [errorMasage, setErrorMasage] = useState("");
   const router = useRouter();
-  const notify = () => toast(`Login Successfuly`);
+  const notify = () => toast("Login Successfuly");
   const dispatch = useDispatch();
 
   const handleEmailChange = (event) => {
@@ -64,7 +64,7 @@ function Login() {
 
               <p className="leading-relaxed mt-4">
                 Welcome back to Course House! Please enter your username and
-                password to access your learning resources. Don't have an
+                password to access your learning resources. Dont have an
                 account yet? No problem, you can sign up for free and start
                 learning today.
               </p>
@@ -112,7 +112,7 @@ function Login() {
               </form>
 
               <p className="text-sm  mt-3">
-                New to Course House.{" "}
+                New to Course House.
                 <Link className="text-blue-800 underline" href={"/register"}>
                   Register Now!
                 </Link>

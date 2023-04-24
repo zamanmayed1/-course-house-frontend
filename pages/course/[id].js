@@ -13,8 +13,10 @@ import { toast } from "react-toastify";
 import { addToCart } from "@/src/features/cartSlice";
 import Head from "next/head";
 import FailedToLoad from "@/components/Shared/FailedToLoad";
+import Image from "next/image";
 
 function SingleCourse() {
+  const dispatch = useDispatch()
   const router = useRouter()
   const { id } = router.query
   const { data, error, isLoading } = useSWR(`/api/courses/${id}?populate=*`, fetcher)
@@ -24,7 +26,6 @@ function SingleCourse() {
   let img = data?.data?.attributes?.courseimage?.data?.attributes?.url
   let units = data?.data?.attributes?.units?.data
   let categoryId = data?.data?.attributes?.category?.data?.id
-  const dispatch = useDispatch()
   const notify = () => toast(`${title} Course added on your cart`);
   const courseData = data?.data;
   const handleClick = () => {
@@ -48,10 +49,13 @@ function SingleCourse() {
 
       <div className="grid grid-cols-1 p-2 lg:grid-cols-2 gap-6 justify-center w-full">
         <div>
-          <img
+          <Image
+           width={800}
+           height={500}
+           alt="Course Image"
             className="md:w-[650px]  w-full"
             src={img}
-          ></img>
+          />
         </div>
         <div>
           <h1 className="mb-2 text-xl md:text-2xl text-black">

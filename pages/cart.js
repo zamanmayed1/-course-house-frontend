@@ -8,6 +8,7 @@ import { makePaymentRequest } from "@/utils/api";
 import ComponentHeader from "@/components/Shared/ComponentHeader";
 import Head from "next/head";
 import Link from "next/link";
+import Image from "next/image";
 
 const stripePromise = loadStripe(
   process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY
@@ -62,7 +63,10 @@ function Cart() {
             <div className="md:col-span-3">
               {cart?.map((course, i) => (
                 <div key={i} className="p-2 shadow-sm flex gap-3 my-2 relative">
-                  <img
+                  <Image
+                   width={600}
+                   height={400}
+                   alt="Course Image"
                     className="w-24 h-16"
                     src={course?.attributes?.courseimage?.data?.attributes?.url}
                   />

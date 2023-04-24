@@ -15,7 +15,7 @@ function Register() {
   const [errorMasage, setErrorMasage] = useState("");
   const router = useRouter();
   const dispatch = useDispatch();
-  const notify = () => toast(`User Created Successfuly`);
+  const notify = () => toast("User Created Successfuly");
   const handleFullNameChange = (event) => {
     setFullName(event.target.value);
   };
@@ -64,7 +64,7 @@ function Register() {
           <div className="container px-5 py-24 mx-auto flex flex-wrap items-center">
             <div className="lg:w-3/5 md:w-1/2 md:pr-16 lg:pr-0 pr-0">
               <h1 className="title-font font-medium text-3xl text-gray-900">
-                Course House Register - Access Your Learning Resources
+                Course House Register  Access Your Learning Resources
               </h1>
 
               <p className="leading-relaxed mt-4">
@@ -72,7 +72,7 @@ function Register() {
                 Register now for our online courses and take advantage of the
                 convenience of learning from anywhere at any time. Our courses
                 cover a wide range of topics and are taught by experienced
-                instructors who are experts in their fields. Don't miss out on
+                instructors who are experts in their fields. Dont miss out on
                 this opportunity to enhance your knowledge and advance your
                 career. Sign up today and start learning!
               </p>
@@ -145,7 +145,7 @@ function Register() {
                 </button>
               </form>
               <p className="text-sm  mt-3">
-                Allready have an account.{" "}
+                Allready have an account.
                 <Link className="text-blue-800 underline" href={"/login"}>
                   Login Now!
                 </Link>

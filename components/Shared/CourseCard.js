@@ -58,12 +58,12 @@ function CourseCard({ data }) {
           <span className="line-through ml-1">৳ {regularprice}</span>{" "}
         </h3>
         <div className="flex gap-3 justify-between">
-          <Link href={`/course/${id}`} className="custom-btn">
+          <Link href={`/course/${id}`} className="custom-btn !text-sm">
             Read More
           </Link>
           <button
             onClick={handleAddToCart}
-            className="custom-btn !bg-green-500"
+            className="custom-btn !bg-green-500 !text-sm"
           >
             Add To Cart
           </button>

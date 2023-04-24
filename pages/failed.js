@@ -1,5 +1,6 @@
 import ComponentHeader from "@/components/Shared/ComponentHeader";
 import Head from "next/head";
+import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
@@ -17,7 +18,10 @@ function Failed() {
           }}
         />
         <div className="my-16">
-          <img
+          <Image
+           width={800}
+           height={500}
+           alt="Failed Payment"
             className="w-64 block mx-auto"
             src="https://res.cloudinary.com/dpr7otqhn/image/upload/v1682210540/thumbnail_payment_failed_da7628af44.png"
           />

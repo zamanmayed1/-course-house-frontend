@@ -3,6 +3,7 @@ import { Inter } from 'next/font/google'
 import Header from '@/components/Header/Header'
 import PopularCourses from '@/components/Popular Courses/PopularCourses'
 import Head from 'next/head'
+import FourSteps from '@/components/Aditionals/FourStep'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -14,6 +15,7 @@ export default function Home() {
       </Head>
       <Header/>
       <PopularCourses/>
+      <FourSteps/>
     </div>
   )
 }
