@@ -11,16 +11,16 @@ function Header() {
             <h1 className="text-center md:text-left mt-4">Own your future learning new skills online</h1>
             <div className="my-2 grid  p-2 grid-cols-3 mx-auto max-w-md md:mx-0">
                 <div>
-                  <h1 className="text-2xl font-extrabold">25+</h1>
-                  <h1>Online Courses</h1>
+                  <h1 className="md:text-2xl text-xl font-extrabold">25+</h1>
+                  <h1 className="text-sm md:text-lg">Online Courses</h1>
                 </div>
                 <div>
-                <h1 className="text-2xl font-extrabold">4+</h1>
-                  <h1>Expert Tutors</h1>
+                <h1 className=" md:text-2xl text-xl font-extrabold">4+</h1>
+                  <h1 className="text-sm md:text-lg">Expert Tutors</h1>
                 </div>
                 <div>
-                <h1 className="text-2xl font-extrabold">75+</h1>
-                  <h1>Online Students</h1>
+                <h1 className=" md:text-2xl text-xl font-extrabold">75+</h1>
+                  <h1 className="text-sm md:text-lg">Online Students</h1>
                 </div>
             </div>
           </div>
