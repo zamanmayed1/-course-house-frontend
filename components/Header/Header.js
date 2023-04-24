@@ -1,29 +1,39 @@
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
-import { Carousel } from "react-responsive-carousel";
 import Image from "next/image";
 function Header() {
   return (
-    <div className="max-h-[500px] w-full object-contain overflow-hidden">
+    <div className="min-h-screen max-h-screen bg-[url('https://res.cloudinary.com/dpr7otqhn/image/upload/v1682311766/thumbnail_bannerbg_28e9e3a49a.png')] bg-cover bg-no-repeat bg-fixed  w-full overflow-hidden">
       <div className="container  mx-auto">
-        <Carousel
-          infiniteLoop={true}
-          showThumbs={false}
-          showIndicators={false}
-          showArrows={false}
-          autoPlay={true}
-          showStatus={false}
-        >
-          <div>
+        <div className="p-4 md:flex w-full items-center">
+          <div className="md:w-2/4 h-full ">
+            <h1 className="text-center md:text-left">The Leader in Online Learning</h1>
+            <h1 className="text-4xl leading-10 line-clamp-6 lg:text-5xl mt-2 font-bold text-center md:text-left">Engaging & Accessible Online Courses For All</h1>
+            <h1 className="text-center md:text-left mt-4">Own your future learning new skills online</h1>
+            <div className="my-2 grid  p-2 grid-cols-3 mx-auto max-w-md md:mx-0">
+                <div>
+                  <h1 className="text-2xl font-extrabold">25+</h1>
+                  <h1>Online Courses</h1>
+                </div>
+                <div>
+                <h1 className="text-2xl font-extrabold">4+</h1>
+                  <h1>Expert Tutors</h1>
+                </div>
+                <div>
+                <h1 className="text-2xl font-extrabold">75+</h1>
+                  <h1>Online Students</h1>
+                </div>
+            </div>
+          </div>
+          <div className="md:w-2/4 h-full">
             <Image
-              className="aspect-w-16 w-[1440px] aspect-h-10 max-w-full h-full md:aspect-auto object-cover"
-              src="https://www.teachertrainingkolkata.com/images/Web-Banner-2.jpg"
-              alt="Banner image"
-              width={1000}
-              height={1000}
+              className="hero-image lg:mt-28  "
+              src="https://res.cloudinary.com/dpr7otqhn/image/upload/v1682313983/53dfd469a087a0eee1c6f4ba46476c02_vew2mx.png"
+              alt="Hero image for the home page"
+              width={1680}
+              height={600}
             />
           </div>
-          
-        </Carousel>
+        </div>
       </div>
     </div>
   );

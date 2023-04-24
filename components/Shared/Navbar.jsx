@@ -42,7 +42,7 @@ export default function Nav() {
   );
 
   return (
-    <div className="bg-white">
+    <div className="bg-white shadow-sm sticky top-0 z-50">
       <div className="  container mx-auto !bg-white  ">
         <Navbar className="!shadow-none  container mx-auto sticky !bg-transparent !border-none z-10 h-max max-w-full  py-2 px-4  lg:py-4 !rounded-lg">
           <div className="flex items-center  justify-between text-[#139df8] ">
